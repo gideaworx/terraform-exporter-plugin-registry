@@ -11,6 +11,17 @@
       "mode": "auto",
       "program": "${workspaceFolder}/main.go",
       "args": ["build-image", "--save-image"]
+    },
+    {
+      "name": "Generate combined index",
+      "type": "go",
+      "request": "launch",
+      "mode": "auto",
+      "program": "${workspaceFolder}/registry/cmd/main.go",
+      "cwd": "${workspaceFolder}/registry",
+      "env": {
+        "BUILD_PATH": "${workspaceFolder}/build/web/"
+      }
     }
   ]
 }

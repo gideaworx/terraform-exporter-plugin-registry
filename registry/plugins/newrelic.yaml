@@ -1,0 +1,42 @@
+plugins:
+- name: newrelic
+  description: Exports artifacts from New Relic
+  homepage: https://github.com/gideaworx/terraform-exporter-newrelic-plugin
+  authors:
+  - name: Josh Ghiloni
+    email: ghiloni@gmail.com
+    company: Ghiloni Ideaworx
+  versions:
+  - version: 0.1.1
+    download:
+      darwin/amd64:
+        locator: https://github.com/gideaworx/terraform-exporter-newrelic-plugin/releases/download/v0.1.1/terraform-exporter-newrelic-plugin_0.1.1_darwin_amd64
+        type: native
+        info:
+          sha256sum: fe1b2b8476a0e14e42c30b6520ba7148aa03e624c59783a2ca1397b50887b18f
+      linux/amd64:
+        locator: https://github.com/gideaworx/terraform-exporter-newrelic-plugin/releases/download/v0.1.1/terraform-exporter-newrelic-plugin_0.1.1_linux_amd64
+        type: native
+        info:
+          sha256sum: 870ac826da34c48f4422d1908e0a3423f5a227ff3c5c92e2780585fd309a4e72
+      windows/amd64:
+        locator: https://github.com/gideaworx/terraform-exporter-newrelic-plugin/releases/download/v0.1.1/terraform-exporter-newrelic-plugin_0.1.1_windows_amd64.exe
+        type: native
+        info:
+          sha256sum: 81ed8ef22a5e1abeecc012b3e01d423839bd91fb1c5698e88393a1356da7ec61
+      darwin/arm64:
+        locator: https://github.com/gideaworx/terraform-exporter-newrelic-plugin/releases/download/v0.1.1/terraform-exporter-newrelic-plugin_0.1.1_darwin_arm64
+        type: native
+        info:
+          sha256sum: 991943aa9b92787e89f82c69e320456f483711168f9466d6f47ec3611fc703a7
+      linux/arm64:
+        locator: https://github.com/gideaworx/terraform-exporter-newrelic-plugin/releases/download/v0.1.1/terraform-exporter-newrelic-plugin_0.1.1_linux_arm64
+        type: native
+        info:
+          sha256sum: 27ead26423106ee8042f345d4191587da0e7fa970c69342f6d3b23b4e32cec7d
+      windows/arm64:
+        locator: https://github.com/gideaworx/terraform-exporter-newrelic-plugin/releases/download/v0.1.1/terraform-exporter-newrelic-plugin_0.1.1_windows_arm64.exe
+        type: native
+        info:
+          sha256sum: dd8c17e673af2f7dede2d5d158290e1925063e42f24c954a1864c156568847cf
+

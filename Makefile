@@ -5,7 +5,7 @@ BUILD_DIR := $(mkfile_dir)/build
 
 GO := $(shell command -v go)
 
-.PHONY: build-dependencies build-registry-index build-web build clean
+.PHONY: build-dependencies build-registry-index build-web build clean run
 
 build: build-dependencies
 	$(GO) build -trimpath -o $(BUILD_DIR)/plugin-registry ./main.go
@@ -20,3 +20,6 @@ build-web:
 
 clean:
 	rm -fr $(BUILD_DIR)
+
+run: clean build
+	$(BUILD_DIR)/plugin-registry serve
