@@ -1,0 +1,4 @@
+build
+terraform-exporter-plugin-registry*
+*.tar
+*.tgz

@@ -1,0 +1,15 @@
+plugins:
+- name: example-plugin
+  description: Does something REALLY cool
+  homepage: https://github.com/example/terraform-plugin
+  authors:
+  - name: Josh Ghiloni
+    email: ghiloni@gmail.com
+    company: Ghiloni Ideaworx
+  - name: My Partner
+    email: someone@example.net
+  versions:
+  - version: 1.0.2
+    download:
+      linux/amd64: https://some-site.com/example-plugin/1.0.2/example-plugin-linux-amd64
+      windows/amd64: https://some-site.com/example-plugin/1.0.2/example-plugin-amd64.exe
