@@ -5,6 +5,7 @@
   "dependencies": {
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
+    "@fontsource/roboto": "^4.5.8",
     "@mui/material": "^5.11.15",
     "js-yaml": "^4.1.0",
     "lodash.clonedeep": "^4.5.0",

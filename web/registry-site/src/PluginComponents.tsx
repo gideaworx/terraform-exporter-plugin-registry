@@ -1,9 +1,8 @@
 import {
-  Box,
-  Divider,
-  FormControl,
+  Box, FormControl,
   Grid,
   InputLabel,
+  Link,
   MenuItem,
   Paper,
   Select,
@@ -13,6 +12,7 @@ import {
   TableCell,
   TableContainer,
   TableRow,
+  Typography
 } from "@mui/material";
 import cloneDeep from "lodash.clonedeep";
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
@@ -45,6 +45,9 @@ function PluginHeader(props: pluginHeaderProps) {
       direction="row"
       justifyContent="flex-end"
       alignItems="center"
+      sx={{
+        pt: "12px",
+      }}
     >
       <Grid item xs={1}>
         Sort:
@@ -111,7 +114,6 @@ export function PluginContainer(props: { plugins: Plugin[] }) {
       direction="column"
       justifyContent="flex-start"
       alignItems="flex-start"
-      divider={<Divider orientation="horizontal" flexItem />}
       spacing={2}
     >
       <PluginHeader setDirection={setDirection} setSort={setSort} />
@@ -126,9 +128,9 @@ function PluginAuthorDisplay(props: { author: PluginAuthor }) {
   const { author } = props;
 
   return author.email.trim() !== "" ? (
-    <a target="_blank" rel="noreferrer" href={`mailto:${author.email}`}>
+    <Link target="_blank" rel="noreferrer" href={`mailto:${author.email}`}>
       {author.name}
-    </a>
+    </Link>
   ) : (
     <span>{author.name}</span>
   );
@@ -151,22 +153,31 @@ export function PluginPane(props: { plugin: Plugin }) {
   return (
     <RegistryContext.Consumer>
       {(registry) => (
-        <div>
+        <div style={{padding: "4px 24px", width: "100%", boxSizing: "border-box"}}>
+        <Paper sx={{
+          width: "100%",
+          p: "4px 24px",
+        }}>
           <Stack
             direction="row"
             justifyContent="space-between"
             alignItems="flex-start"
             spacing={1}
           >
-            <Paper>
-              <h3 style={{ display: "inline" }}>{plugin.name}</h3>
-              <h4 style={{ display: "inline" }}>v{latestVersion.version}</h4>
-            </Paper>
-            <Paper>
-              <h4 style={{ display: "inline" }}>
-                {plugin.lastUpdated.toISOString().substring(0, 11)}
-              </h4>
-            </Paper>
+            <Typography
+              variant="h5"
+              style={{ display: "inline" }}
+              component="div"
+            >
+              {plugin.name}{" — "}
+              <Typography variant="h6" style={{ display: "inline" }}>
+                v{latestVersion.version}
+              </Typography>
+            </Typography>
+
+            <Typography variant="h6" style={{ display: "inline" }}>
+              {plugin.lastUpdated.toISOString().substring(0, 10)}
+            </Typography>
           </Stack>
           <Stack
             direction="column"
@@ -203,13 +214,13 @@ export function PluginPane(props: { plugin: Plugin }) {
                       <TableRow>
                         <TableCell align="right">Homepage</TableCell>
                         <TableCell align="left">
-                          <a
+                          <Link
                             target="_blank"
                             rel="noreferrer"
                             href={plugin.homepage}
                           >
                             {plugin.homepage}
-                          </a>
+                          </Link>
                         </TableCell>
                       </TableRow>
                     )}
@@ -242,6 +253,7 @@ export function PluginPane(props: { plugin: Plugin }) {
               </TableContainer>
             </Box>
           </Stack>
+        </Paper>
         </div>
       )}
     </RegistryContext.Consumer>

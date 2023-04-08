@@ -16,7 +16,7 @@ build-registry-index: build-web
 	BUILD_PATH=$(BUILD_DIR)/web $(MAKE) -C registry generate-index
 
 build-web:
-	BUILD_PATH=$(BUILD_DIR)/web $(MAKE) -C web/registry-site
+	BUILD_PATH=$(BUILD_DIR)/web $(MAKE) -C web/registry-site build
 
 clean:
 	rm -fr $(BUILD_DIR)
