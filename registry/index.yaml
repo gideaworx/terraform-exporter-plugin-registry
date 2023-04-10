@@ -1,2 +1,2 @@
-name: terraform-exporter-registry
+name: default
 baseURL: https://gideaworx.github.io/terraform-exporter-registry
