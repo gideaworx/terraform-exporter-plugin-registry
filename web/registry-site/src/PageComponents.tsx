@@ -1,13 +1,7 @@
 import styled from "@emotion/styled";
-import {
-  AppBar,
-  Box, Switch,
-  Theme,
-  Toolbar,
-  Typography
-} from "@mui/material";
+import { AppBar, Box, FormControlLabel, Switch, Theme, Toolbar, Typography } from "@mui/material";
 import { Dispatch, SetStateAction } from "react";
-import logo from './logo.svg';
+import logo from "./logo.svg";
 
 interface pageHeaderProps {
   registryName: string;
@@ -23,19 +17,26 @@ export function PageHeader(props: pageHeaderProps) {
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
         <Toolbar>
-          <img src={logo} alt="Ghiloni Ideaworx" style={{height:"32px", width: "auto", marginRight: "8px"}} />
+          <img
+            src={logo}
+            alt="Ghiloni Ideaworx"
+            style={{ height: "32px", width: "auto", marginRight: "8px" }}
+          />
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             Plugin Registry {registryName}
           </Typography>
-          <MaterialUISwitch
-              theme={theme}
-              defaultChecked={theme.palette.mode === "dark"}
-              onChange={() => {
-                setTheme(
-                  theme.palette.mode === "dark" ? lightTheme : darkTheme
-                );
-              }}
-            />
+          <FormControlLabel label={`Switch to ${theme.palette.mode === "dark" ? "light" : "dark"} mode`} labelPlacement="start" control={
+              <MaterialUISwitch
+                theme={theme}
+                checked={theme.palette.mode==="dark"}
+                onChange={() => {
+                  setTheme(
+                    theme.palette.mode === "dark" ? lightTheme : darkTheme
+                  );
+                }}
+              />
+            }
+          />
         </Toolbar>
       </AppBar>
     </Box>
