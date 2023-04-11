@@ -25,6 +25,7 @@ const (
 	LinuxArm64   TargetArchitecture = "linux/arm64"
 	WindowsAmd64 TargetArchitecture = "windows/amd64"
 	WindowsArm64 TargetArchitecture = "windows/arm64"
+	MultiArch    TargetArchitecture = "multi-arch"
 )
 
 type PluginAuthor struct {
