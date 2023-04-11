@@ -34,7 +34,7 @@ type PluginAuthor struct {
 	Company string `yaml:"company,omitempty"`
 }
 
-type pluginExecutable struct {
+type PluginExecutable struct {
 	Locator string     `yaml:"locator"`
 	Type    PluginType `yaml:"type"`
 	Info    struct {
@@ -45,7 +45,7 @@ type pluginExecutable struct {
 
 type PluginVersion struct {
 	Version      string                                  `yaml:"version"`
-	DownloadInfo map[TargetArchitecture]pluginExecutable `yaml:"download"`
+	DownloadInfo map[TargetArchitecture]PluginExecutable `yaml:"download"`
 }
 
 type Plugin struct {
