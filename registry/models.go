@@ -27,7 +27,7 @@ const (
 	WindowsArm64 TargetArchitecture = "windows/arm64"
 )
 
-type pluginAuthor struct {
+type PluginAuthor struct {
 	Name    string `yaml:"name"`
 	Email   string `yaml:"email"`
 	Company string `yaml:"company,omitempty"`
@@ -42,7 +42,7 @@ type pluginExecutable struct {
 	} `yaml:"info"`
 }
 
-type pluginVersion struct {
+type PluginVersion struct {
 	Version      string                                  `yaml:"version"`
 	DownloadInfo map[TargetArchitecture]pluginExecutable `yaml:"download"`
 }
@@ -52,8 +52,8 @@ type Plugin struct {
 	Description string          `yaml:"description"`
 	Homepage    string          `yaml:"homepage"`
 	LastUpdated ISO8601Time     `yaml:"lastUpdated"`
-	Authors     []pluginAuthor  `yaml:"authors"`
-	Versions    []pluginVersion `yaml:"versions"`
+	Authors     []PluginAuthor  `yaml:"authors"`
+	Versions    []PluginVersion `yaml:"versions"`
 }
 
 type PluginRegistry struct {
