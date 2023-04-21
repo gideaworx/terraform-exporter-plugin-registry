@@ -10,32 +10,32 @@ plugins:
   - version: 0.1.3
     download:
       darwin/amd64:
-        locator: https://github.com/gideaworx/terraform-exporter-newrelic-plugin/releases/download/v0.1.1/terraform-exporter-newrelic-plugin_0.1.3_darwin_amd64
+        locator: https://github.com/gideaworx/terraform-exporter-newrelic-plugin/releases/download/v0.1.3/terraform-exporter-newrelic-plugin_0.1.3_darwin_amd64
         type: native
         info:
           sha256sum: 43d7bd968a82e1b16ba20d1830155172ebe5132dd037bebd4177799584e7a037
       linux/amd64:
-        locator: https://github.com/gideaworx/terraform-exporter-newrelic-plugin/releases/download/v0.1.1/terraform-exporter-newrelic-plugin_0.1.3_linux_amd64
+        locator: https://github.com/gideaworx/terraform-exporter-newrelic-plugin/releases/download/v0.1.3/terraform-exporter-newrelic-plugin_0.1.3_linux_amd64
         type: native
         info:
           sha256sum: 1cfdfdd84f267718cbe37cae65ae76e799568fae021a816468be611d66ab49d6
       windows/amd64:
-        locator: https://github.com/gideaworx/terraform-exporter-newrelic-plugin/releases/download/v0.1.1/terraform-exporter-newrelic-plugin_0.1.3_windows_amd64.exe
+        locator: https://github.com/gideaworx/terraform-exporter-newrelic-plugin/releases/download/v0.1.3/terraform-exporter-newrelic-plugin_0.1.3_windows_amd64.exe
         type: native
         info:
           sha256sum: cb4c4a6c71f23af27ba1377a9c140c5c2bed020811266a914455f4a0636cc3f8
       darwin/arm64:
-        locator: https://github.com/gideaworx/terraform-exporter-newrelic-plugin/releases/download/v0.1.1/terraform-exporter-newrelic-plugin_0.1.3_darwin_arm64
+        locator: https://github.com/gideaworx/terraform-exporter-newrelic-plugin/releases/download/v0.1.3/terraform-exporter-newrelic-plugin_0.1.3_darwin_arm64
         type: native
         info:
           sha256sum: 7eabfc4d110c1eb0c62810fad77116a4b736607210458c32817ce029b856d4a4
       linux/arm64:
-        locator: https://github.com/gideaworx/terraform-exporter-newrelic-plugin/releases/download/v0.1.1/terraform-exporter-newrelic-plugin_0.1.3_linux_arm64
+        locator: https://github.com/gideaworx/terraform-exporter-newrelic-plugin/releases/download/v0.1.3/terraform-exporter-newrelic-plugin_0.1.3_linux_arm64
         type: native
         info:
           sha256sum: 76a296117800e67fff91445a57a3415131284c0399d1537c25d23e3945aa01be
       windows/arm64:
-        locator: https://github.com/gideaworx/terraform-exporter-newrelic-plugin/releases/download/v0.1.1/terraform-exporter-newrelic-plugin_0.1.3_windows_arm64.exe
+        locator: https://github.com/gideaworx/terraform-exporter-newrelic-plugin/releases/download/v0.1.3/terraform-exporter-newrelic-plugin_0.1.3_windows_arm64.exe
         type: native
         info:
           sha256sum: e24dfd34ce40792be84ad84abbc10ef20f85355281fc3b40da26e79ea4c4a421
