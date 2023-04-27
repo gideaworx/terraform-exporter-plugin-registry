@@ -2,28 +2,25 @@ mkfile_path := $(abspath $(lastword $(MAKEFILE_LIST)))
 mkfile_dir := $(dir $(mkfile_path))
 
 BUILD_DIR := $(mkfile_dir)/build
+WEB_DIR := $(BUILD_DIR)/web
 
 GO := $(shell command -v go)
-TMPINDEX := $(shell mktemp)
 
-.PHONY: build-dependencies build-registry-index build-web build clean run
+$(BUILD_DIR):
+	mkdir -p $(BUILD_DIR)
 
-build: build-dependencies
-	$(GO) build -trimpath -o $(BUILD_DIR)/plugin-registry ./main.go
+$(WEB_DIR):
+	mkdir -p $(WEB_DIR)
 
-build-dependencies: build-web
+$(BUILD_DIR)/plugin-registry: $(BUILD_DIR)
+	$(GO) build -trimpath -o $(BUILD_DIR)/plugin-registry ./backend/cmd/registry-mgmt/main.go
 
-build-registry-index:
-	mkdir -p $(BUILD_DIR)/web
-	BUILD_PATH=$(BUILD_DIR)/web $(MAKE) -C registry generate-index
+.PHONY: build-web build clean
 
-build-web: build-registry-index
-	cp $(BUILD_DIR)/web/index.yaml $(TMPINDEX)
-	BUILD_PATH=$(BUILD_DIR)/web $(MAKE) -C web/registry-site build
-	mv $(TMPINDEX) $(BUILD_DIR)/web/index.yaml
+build: $(BUILD_DIR)/plugin-registry
+
+build-web: $(WEB_DIR) $(BUILD_DIR)/plugin-registry
+	$(BUILD_DIR)/plugin-registry build-site -o $(BUILD_DIR)/web
 
 clean:
 	rm -fr $(BUILD_DIR)
-
-run: clean build
-	$(BUILD_DIR)/plugin-registry serve
