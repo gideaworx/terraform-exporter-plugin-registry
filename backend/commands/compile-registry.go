@@ -1,10 +1,15 @@
 package commands
 
 import (
+	"bytes"
 	"io"
 	"io/fs"
 	"log"
+	"os"
+	"os/exec"
+	"path/filepath"
 	"strings"
+	"time"
 
 	"github.com/alecthomas/kong"
 	terraformexporterpluginregistry "github.com/gideaworx/terraform-exporter-plugin-registry"
@@ -65,9 +70,9 @@ func (c *CompileRegistryCommand) Run() error {
 				return nil
 			}
 
-			lastUpdated := info.ModTime()
+			lastUpdated := c.getLastModified(info.Name())
 			for _, plugin := range pluginDef.Plugins {
-				plugin.LastUpdated = registry.ISO8601Time(lastUpdated)
+				plugin.LastUpdated = lastUpdated
 				pluginRegistry.Plugins = append(pluginRegistry.Plugins, plugin)
 			}
 		}
@@ -78,4 +83,36 @@ func (c *CompileRegistryCommand) Run() error {
 	}
 
 	return yaml.NewEncoder(c.out).Encode(pluginRegistry)
+}
+
+func (c *CompileRegistryCommand) getLastModified(pluginFileName string) registry.ISO8601Time {
+	git, err := exec.LookPath("git")
+	if err != nil {
+		log.Println("git not found on $PATH, returning current time")
+		return registry.ISO8601Time(time.Now().UTC())
+	}
+
+	stdout := &bytes.Buffer{}
+	stderr := &bytes.Buffer{}
+	cmd := exec.Command(git, "rev-parse", "--show-toplevel")
+	cmd.Stdout = stdout
+	cmd.Stderr = stderr
+	cmd.Stdin = bytes.NewReader([]byte{})
+
+	err = cmd.Run()
+	if err != nil {
+		log.Printf("git command failed, returning current time. error: %s", stderr.String())
+		return registry.ISO8601Time(time.Now().UTC())
+	}
+
+	rootDir := strings.TrimSpace(stdout.String())
+	pluginFile := filepath.Join(rootDir, "registry", "plugins", pluginFileName)
+
+	info, err := os.Stat(pluginFile)
+	if err != nil {
+		log.Printf("could not stat %s, returning current time. error: %v", pluginFile, err)
+		return registry.ISO8601Time(time.Now().UTC())
+	}
+
+	return registry.ISO8601Time(info.ModTime())
 }
