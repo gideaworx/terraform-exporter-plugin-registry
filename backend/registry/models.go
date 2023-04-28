@@ -19,13 +19,14 @@ const (
 type TargetArchitecture string
 
 const (
-	DarwinAmd64  TargetArchitecture = "darwin/amd64"
-	DarwinArm64  TargetArchitecture = "darwin/arm64"
-	LinuxAmd64   TargetArchitecture = "linux/amd64"
-	LinuxArm64   TargetArchitecture = "linux/arm64"
-	WindowsAmd64 TargetArchitecture = "windows/amd64"
-	WindowsArm64 TargetArchitecture = "windows/arm64"
-	MultiArch    TargetArchitecture = "multi-arch"
+	DarwinAmd64     TargetArchitecture = "darwin/amd64"
+	DarwinArm64     TargetArchitecture = "darwin/arm64"
+	DarwinUniversal TargetArchitecture = "darwin/universal"
+	LinuxAmd64      TargetArchitecture = "linux/amd64"
+	LinuxArm64      TargetArchitecture = "linux/arm64"
+	WindowsAmd64    TargetArchitecture = "windows/amd64"
+	WindowsArm64    TargetArchitecture = "windows/arm64"
+	MultiArch       TargetArchitecture = "multi-arch"
 )
 
 type PluginAuthor struct {
