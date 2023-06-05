@@ -10,6 +10,38 @@ plugins:
           email: ghiloni@gmail.com
           company: Ghiloni Ideaworx
       versions:
+        - version: 0.3.1
+          download:
+            darwin/amd64:
+                locator: https://github.com/gideaworx/terraform-exporter-newrelic-plugin/releases/download/v0.3.1/terraform-exporter-newrelic-plugin_0.3.1_darwin_amd64
+                type: native
+                info:
+                    sha256sum: 47c3c3da1d03e80297a7929415b0d4ce73bf4ef34779da57887cdfa701bbfb88
+            darwin/arm64:
+                locator: https://github.com/gideaworx/terraform-exporter-newrelic-plugin/releases/download/v0.3.1/terraform-exporter-newrelic-plugin_0.3.1_darwin_arm64
+                type: native
+                info:
+                    sha256sum: bb453c7286150e7431c824a51c37cd9d9df87a182303c99d39868291d34096d7
+            linux/amd64:
+                locator: https://github.com/gideaworx/terraform-exporter-newrelic-plugin/releases/download/v0.3.1/terraform-exporter-newrelic-plugin_0.3.1_linux_amd64
+                type: native
+                info:
+                    sha256sum: 978fa8e9cb935062048bfb1fcf1d6ec3e9771a528908336c069a810b86b5d421
+            linux/arm64:
+                locator: https://github.com/gideaworx/terraform-exporter-newrelic-plugin/releases/download/v0.3.1/terraform-exporter-newrelic-plugin_0.3.1_linux_arm64
+                type: native
+                info:
+                    sha256sum: 97e117bef0ed340928a98cb81053a20eea980c4ab6e2b4a7e3d8d4b2cdd745bd
+            windows/amd64:
+                locator: https://github.com/gideaworx/terraform-exporter-newrelic-plugin/releases/download/v0.3.1/terraform-exporter-newrelic-plugin_0.3.1_windows_amd64.exe
+                type: native
+                info:
+                    sha256sum: baba7857ff4d98ec0a9101f3308f8a8e54dd22a606d533677b9fa8c2f54f65d7
+            windows/arm64:
+                locator: https://github.com/gideaworx/terraform-exporter-newrelic-plugin/releases/download/v0.3.1/terraform-exporter-newrelic-plugin_0.3.1_windows_arm64.exe
+                type: native
+                info:
+                    sha256sum: da01d21f280e6a19730c0ddd36aed452b967e3eeae3f0f610b97a84f14468913
         - version: 0.2.1
           download:
             darwin/amd64:
